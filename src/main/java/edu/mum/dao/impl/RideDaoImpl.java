@@ -48,7 +48,7 @@ public class RideDaoImpl extends GenericDaoImpl<Ride> implements RideDao {
 	@Override
 	public List<Ride> ridesJoinedByUser(Long userId) {
 		Query query = entityManager
-				.createQuery("select r from Ride r, User u where u.id = :userId and r member of u.reservedRides");
+				.createQuery("select r from Ride r, User u where u.id = :userId and u member of r.usersThatReservedRide");
 		query.setParameter("userId", userId);
 		
 		return (List<Ride>) query.getResultList();

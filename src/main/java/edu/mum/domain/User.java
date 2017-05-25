@@ -84,17 +84,17 @@ public class User implements Serializable {
 		createdRides.add(ride);
 	}
 
-	public List<Ride> getReservedRides() {
-		return reservedRides;
-	}
+//	public List<Ride> getReservedRides() {
+//		return reservedRides;
+//	}
+//
+//	public void setReservedRides(List<Ride> reservedRides) {
+//		this.reservedRides = reservedRides;
+//	}
 
-	public void setReservedRides(List<Ride> reservedRides) {
-		this.reservedRides = reservedRides;
-	}
-
-	@ManyToMany(mappedBy = "usersThatReservedRide", fetch=FetchType.EAGER) //, cascade= {CascadeType.PERSIST,CascadeType.MERGE })
-	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Ride> reservedRides = new ArrayList<Ride>();
+//	@ManyToMany(mappedBy = "usersThatReservedRide", fetch=FetchType.EAGER) //, cascade= {CascadeType.PERSIST,CascadeType.MERGE })
+//	@Fetch(value = FetchMode.SUBSELECT)
+//	private List<Ride> reservedRides = new ArrayList<Ride>();
 
 	public Long getId() {
 		return id;
