@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:remove="all">Template for Order email </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+    
+    <div style="font-size:20px"><em>Dear Ride Owner ---</em>
+    </div>
+        <p th:text="#{greeting(${name})}"/>         
+            <H4> User need your Confirmation to join your Ride</H4>  
+             <H4> User Detail</H4>      
+ 		<br /><b>User Name: </b> <span th:text="${joinUser.firstName}"></span>
+ 		<br /><b>Email: </b> <span th:text="${joinUser.email}"></span>
+		
+		<br />
+		<H4> User Message</H4> 
+		<p>
+           <span th:text="${message}"></span>
+        </p>
+		
+         <p><br />
+            Thank you in advance<br /> 
+            <a th:href = "${confirmationUrl}">Confirm Request</a>
+        </p>
+    </body>
+</html>
