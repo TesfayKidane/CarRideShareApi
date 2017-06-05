@@ -5,6 +5,13 @@
 	<artifactId>CarRideShareApi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CarRideShareApi</name>
+
+	<prerequisites>
+		<maven>3.1.0</maven>
+	</prerequisites>
+
+
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -128,6 +135,25 @@
 			<artifactId>mysql-socket-factory</artifactId>
 			<version>1.0.2</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>${appengine.sdk.version}</version>
+		</dependency>
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-testing</artifactId>
+			<version>${appengine.sdk.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-stubs</artifactId>
+			<version>${appengine.sdk.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -169,6 +195,28 @@
 
 				</configuration>
 			</plugin>
+			<!-- <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.1</version>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>display-dependency-updates</goal>
+							<goal>display-plugin-updates</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
+			<plugin>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>${appengine.sdk.version}</version>
+				<configuration>
+					<enableJarClasses>false</enableJarClasses>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -176,6 +224,10 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<version>1.0</version>
+
+		<appengine.app.version>1</appengine.app.version>
+		<appengine.sdk.version>1.9.48</appengine.sdk.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<packaging>war</packaging>
