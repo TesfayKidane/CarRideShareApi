@@ -254,7 +254,7 @@ public class Ride implements Serializable {
 	public int hashCode() {
 		int result;
 		result = (rideOriginCity != null ? rideOriginCity.hashCode() : 0);
-		result = 29 * result + created.hashCode();
+		result = 29 * result;
 		return result;
 	}
 
